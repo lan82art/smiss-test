@@ -10,7 +10,7 @@ $this->title = 'SignUp';
 ?>
 <div class="site-signup inner-wrapper">
     <div class="row">
-        <div class="class = col-sm-4 col-sm-offset-4">
+        <div class="col-sm-2 col-sm-offset-5">
             <h2><?= Html::encode($this->title) ?></h2>
             <p>Please fill out the following fields to register:</p>
             <?php $form = ActiveForm::begin([

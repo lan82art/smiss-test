@@ -22,10 +22,14 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                //'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['login', 'error','signup'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout','index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -83,6 +87,8 @@ class SiteController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             return ActiveForm::validate($model);
         }
+
+
 
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
