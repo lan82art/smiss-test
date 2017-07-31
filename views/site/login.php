@@ -10,7 +10,7 @@ use kartik\form\ActiveForm;
 $this->title = 'Login';
 ?>
 <div class="site-login inner-wrapper">
-    <div class="row">
+    <div class="row" style="margin-top: 10%;">
         <div class="col-sm-2 col-sm-offset-5">
     <h1><?= Html::encode($this->title) ?></h1>
 

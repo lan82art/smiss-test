@@ -1,4 +1,5 @@
 <?php
+
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\SignupForm */
@@ -9,7 +10,7 @@ use kartik\form\ActiveForm;
 $this->title = 'SignUp';
 ?>
 <div class="site-signup inner-wrapper">
-    <div class="row">
+    <div class="row" style="margin-top: 10%">
         <div class="col-sm-2 col-sm-offset-5">
             <h2><?= Html::encode($this->title) ?></h2>
             <p>Please fill out the following fields to register:</p>

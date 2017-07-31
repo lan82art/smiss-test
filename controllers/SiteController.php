@@ -88,8 +88,6 @@ class SiteController extends Controller
             return ActiveForm::validate($model);
         }
 
-
-
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }

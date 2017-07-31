@@ -2,6 +2,8 @@
 namespace app\models;
 
 use yii\base\Model;
+use Yii;
+use Yii\base\Exception;
 
 
 
@@ -17,6 +19,7 @@ class SignupForm extends Model
     /**
      * @inheritdoc
      */
+
     public function rules()
     {
         return [
@@ -41,14 +44,24 @@ class SignupForm extends Model
      */
     public function signup()
     {
-
         if ($this->validate()) {
-            $user = new User();
-            $user->email = $this->email;
-            $user->setPassword($this->password);
+            $transaction = Yii::$app->db->beginTransaction();
+            try{
+                $user = new User();
+                $user->email = $this->email;
+                $user->setPassword($this->password);
 
-            if ($user->save()) {
+                /*if ($user->save()) {
+                    return $user;
+                }*/
+                $user->save();
+                $transaction->commit();
+
                 return $user;
+
+            } catch (Exception $e) {
+
+                $transaction->rollBack();
             }
         }
         return null;
