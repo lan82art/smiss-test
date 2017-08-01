@@ -50,6 +50,11 @@ $config = [
         ],
 
     ],
+    'modules' => [
+        'treemanager' => [
+            'class' => '\kartik\tree\Module',
+        ],
+    ],
     'params' => $params,
 ];
 
